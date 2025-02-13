@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valentine's Day Card</title>
+        <link rel="stylesheet" href="val.css">
+    </head>
+    <body>
+        <div class="card">
+            
+
+            <div id="heartContainer"></div>
+
+            <div id="text1">
+                <p>Greetings milady. Wishing you a wonderful day today. To my most beautiful lady, and dearest to me heart. Another year has past to this day. Another day to remember and celebrate love. With most gleeful mind and a heart filled with your love darling I'm here. Though with a distance that is incomprehensible in human sense, but with a connection that is just moments apart, we remain connected, with love, hopes and dreams. Wishes and goals line our paths. With beautiful flowers lining the periphery of our so lovely connection, a path that is and will always be laid down for you from me.  </p>
+                <p>Oh darling my love! For another auspicious day again I am here to ask for thee hand. Will you be mine valentine. Oh my sweetheart, dear love, again toward a future filled with our dreams and goals. Lots of days that are lined with happiness and love. And to the shoulder to rest on when we are tired from this arduous and wretched world. To the owner of my heart and breath of my life. The light the shines upon my soul like a fire so beautiful and bright, with warmth so dear. Comforting and with passion. To my love my dear Blessy. I love you. I love you so dear my darling. May it be a universe that is between us, let our paths converge and merge. Intertwine till union. And from there to our destination and beyond. </p>
+                <p>Oh dear again I ask. Will you be mine valentine for this year as well? </p>
+            </div>
+            
+            <div id="text2">YAAY!!!</div>
+            <div class="heart"></div>
+            <button id="heartButton">YES!</button>
+        </div>
+
+        <script>
+            let isGenerating = false;
+            let isTextVisible = true;
+
+            document.getElementById('heartButton').addEventListener('click', function() {
+                if (!isGenerating) {
+                    isGenerating = true;
+                    startHeartFountain();
+                }
+
+                // Toggle visibility of text
+                const text1 = document.getElementById('text1');
+                const text2 = document.getElementById('text2');
+
+                if (isTextVisible) {
+                    text1.style.display = 'none';
+                    text2.style.display = 'block';
+                } else {
+                    text1.style.display = 'block';
+                    text2.style.display = 'none';
+                }
+
+                isTextVisible = !isTextVisible;
+            });
+
+            function startHeartFountain() {
+                const heartContainer = document.getElementById('heartContainer');
+                // Create a new heart every 100ms
+                const heartInterval = setInterval(function() {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+
+                    // Randomize the horizontal position of the heart
+                    heart.style.left = `${Math.random() * window.innerWidth}px`;
+
+                    // Add the heart to the container
+                    heartContainer.appendChild(heart);
+
+                    // Remove the heart after the animation ends
+                    heart.addEventListener('animationend', () => {
+                        heartContainer.removeChild(heart);
+                    });
+                }, 100); // New heart every 100ms
+            }
+        </script>
+    </body>
+</html>
