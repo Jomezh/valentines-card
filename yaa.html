@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valentine's Day Card</title>
+        <link rel="stylesheet" href="val.css">
+    </head>
+    <body>
+        <div class="card">
+            <div id="heartContainer"></div>
+            
+            <div id="text1">
+                <p>YAAY!!!🥳</p>
+            </div>
+            
+        </div>
+
+        <script>
+            window.onload = function() {
+                startHeartFountain();
+            }
+
+            function startHeartFountain() {
+                const heartContainer = document.getElementById('heartContainer');
+                // Create a new heart every 100ms
+                const heartInterval = setInterval(function() {
+                    const heart = document.createElement('div');
+                    heart.classList.add('heart');
+                    heart.innerHTML = '❤️';
+
+                    // Randomize the horizontal position of the heart
+                    heart.style.left = `${Math.random() * window.innerWidth}px`;
+
+                    // Add the heart to the container
+                    heartContainer.appendChild(heart);
+
+                    // Remove the heart after the animation ends
+                    heart.addEventListener('animationend', () => {
+                        heartContainer.removeChild(heart);
+                    });
+                }, 100); // New heart every 100ms
+            }
+        </script>
+    </body>
+</html>
