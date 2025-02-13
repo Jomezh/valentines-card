@@ -18,35 +18,15 @@
                 <p>Oh dear again I ask. Will you be mine valentine for this year as well? </p>
             </div>
             
-            <div id="text2">YAAY!!!🥳</div>
             <div class="heart"></div>
-            <button id="heartButton">YES!🥺</button>
-        </div>
+            <a href="yaa.html">
+                <button id="heartButton">YES!</button>
+            </a> 
 
-        <script>
-            let isGenerating = false;
-            let isTextVisible = true;
-
-            document.getElementById('heartButton').addEventListener('click', function() {
-                if (!isGenerating) {
-                    isGenerating = true;
-                    startHeartFountain();
-                }
-
-                // Toggle visibility of text
-                const text1 = document.getElementById('text1');
-                const text2 = document.getElementById('text2');
-
-                if (isTextVisible) {
-                    text1.style.display = 'none';
-                    text2.style.display = 'block';
-                } else {
-                    text1.style.display = 'block';
-                    text2.style.display = 'none';
-                }
-
-                isTextVisible = !isTextVisible;
-            });
+         <script>
+            window.onload = function() {
+                startHeartFountain();
+            }
 
             function startHeartFountain() {
                 const heartContainer = document.getElementById('heartContainer');
@@ -69,5 +49,6 @@
                 }, 100); // New heart every 100ms
             }
         </script>
+            
     </body>
 </html>
